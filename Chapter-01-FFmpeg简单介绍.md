@@ -49,7 +49,21 @@ ffmpeg是FFmpeg源代码编译生成后的一个可执行文件，其可作为�
 
 <br>
 
-### 1.3.2 ffplay
+### 1.3.2 ffprobe
+
+ffprove是一个非常强大的多媒体分析工具。
+
+简单使用：
+
+```shell
+ffprobe -show_streams in.mp4
+```
+
+这里只是简单提到ffprove，简单使用可以到2.2查看，具体使用可以看其他更专业的文档或博客。
+
+<br>
+
+### 1.3.3 ffplay
 
 FFmpeg提供的视频播放工具，它是一个命令行工具。
 
@@ -75,20 +89,6 @@ ffplay -h >> ffplay_htlp.txt
 ffplay -i in.mp4
 ```
 
-这里只是简单提到ffplay，具体使用可以看其他更专业的文档或博客。
-
-<br>
-
-### 1.3.3 ffprobe
-
-ffprove是一个非常强大的多媒体分析工具。
-
-简单使用：
-
-```shell
-ffprobe -show_streams in.mp4
-```
-
-同样，这里只是简单提到ffprove，具体使用可以看其他更专业的文档或博客。
+同样，这里只是简单提到ffplay，简单使用可以到2.3查看，具体使用可以看其他更专业的文档或博客。
 
 <br>
