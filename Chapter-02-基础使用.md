@@ -54,7 +54,7 @@ ffprobe [OPTIONS] [INPUT_FILES]
 >
 > ......
 
-其中个字段说明在2.3.x中详细说明。
+其中packet的字段说明在2.3.x中详细说明。
 
 <br>
 
@@ -66,17 +66,7 @@ ffprobe [OPTIONS] [INPUT_FILES]
 
 > [PACKET]
 > codec_type=video
-> stream_index=0
-> pts=0
-> pts_time=0.000000
-> dts=-3000
-> dts_time=-0.033333
-> duration=1500
-> duration_time=0.016667
-> convergence_duration=N/A
-> convergence_duration_time=N/A
-> size=95247
-> pos=48
+> ...
 > flags=K_
 > data=
 > 00000000: 0000 02f5 0605 ffff f1dc 45e9 bde6 d948  ..........E....H
@@ -89,7 +79,78 @@ ffprobe [OPTIONS] [INPUT_FILES]
 
 ### 2.2.2 分析多媒体的封装格式
 
+通过 `ffprobe -show_format in.mp4` 命令可以查看视频的封装格式。
 
+输出：
+
+> [FORMAT]
+> filename=in.mp4
+> nb_streams=1
+> ...
+> TAG:encoder=HandBrake 1.0.7 2017040900
+> [/FORMAT]
+
+其中format的字段说明在2.3.x中详细说明。
+
+<br>
+
+### 2.2.3 查看视频文件的帧信息
+
+通过 `ffprobe -show_frames in.mp4` 命令可以查看视频的封装格式。
+
+输出：
+
+> [FRAME]
+> media_type=video
+> stream_index=0
+> key_frame=1
+> ...
+> chroma_location=left
+> [/FRAME]
+>
+> [FRAME]
+>
+> ...
+>
+> [/FRAME]
+
+其中frame的字段说明在2.3.x中详细说明。
+
+<br>
+
+### 2.2.4 查看视频文件的流信息
+
+通过 `ffprobe -show_streams in.mp4` 命令可以查看视频的封装格式。
+
+输出：
+
+> [STREAM]
+> index=0
+> codec_name=h264
+> codec_long_name=H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
+> ...
+> TAG:creation_time=2020-05-09T08:31:54.000000Z
+> TAG:language=und
+> TAG:handler_name=VideoHandler
+> [/STREAM]
+
+其中stream的字段说明在2.3.x中详细说明。
+
+<br>
+
+### 2.2.5 ffprobe格式化显示
+
+以上输出显示的都是key-value形式，这种阅读方式，有些人觉得方便，但也有些人觉得不方便。
+
+如果要进行格式化显示，可以用 `ffprobe -print_format` 或者 `ffprobe -of` 参数来进行相应的格式输出。
+
+`-print_format` 支持各种格式输出，包括XML、INI、JSON、CSV、FLAT等。
+
+举例：
+
+`ffprobe -of xml -show_streams in.mp4` 将得到XML格式的输出；
+
+`ffprobe -of json -show_streams in.mp4` 将得到JSON格式的输出。
 
 <br>
 
