@@ -226,6 +226,71 @@ ffprobe的基本使用：
 
 ## 2.3 ffplay常用命令
 
+ffplay是FFmpeg中的播放器，同时也是测试ffmpeg的codec引擎、format引擎以及filter引擎的工具，并且还可以进行可视化的媒体参数分析。
 
+ffplay的基本使用：
+
+`ffplay [options] input_file`
+
+使用 `ffplay --help` 可以查看详细帮助信息。
+
+### 2.3.1 ffplay常用参数
+
+常用的参数：
+
+| 参数         | 说明                                                         |
+| ------------ | ------------------------------------------------------------ |
+| x            | 强制设置视频显示窗口的宽度                                   |
+| y            | 强制设置视频显示窗口的高度                                   |
+| s            | 设置视频显示的宽高                                           |
+| fs           | 强制全屏显示                                                 |
+| an           | 屏蔽音频                                                     |
+| vn           | 屏蔽视频                                                     |
+| sn           | 屏蔽字幕                                                     |
+| ss           | 根据设置的秒进行定位拖动                                     |
+| t            | 设置播放视频/音频的长度                                      |
+| bytes        | 设置定位拖动的策略<br/>0为 不可拖动<br/>1为 可拖动<br/>-1为 自动 |
+| nodisp       | 关闭图形化显示窗口                                           |
+| f            | 强制使用设置的格式进行解析                                   |
+| window_title | 设置显示窗口的标题                                           |
+| af           | 设置音频的滤镜                                               |
+| codec        | 强制使用设置的codec进行解码                                  |
+| autorotate   | 自动旋转视频                                                 |
+
+<br>
+
+下面举几个示例。
+
+- 在视频的第30秒开始播放，播放10秒钟
+
+  `ffplay -ss 30 -t 10 in.mp4`
+
+- 显示窗口自定义的标题
+
+  `ffplay -window_title "Hello World" in.mp4`
+
+- 打开网络直播流
+
+  `ffplay -window_title "live" rtmp://up.v.test.com/live/stream`
+
+<br>
+
+### 2.3.2 ffplay高级参数
+
+<br>
+
+### 2.3.3 ffplay数据可视化分析
+
+<br>
+
+## 2.4 小结
+
+本章对FFmpeg中的ffmpeg、ffprobe和ffplay做了详细的介绍，简要总结如下：
+
+- ffmpeg主要用于音视频编解码
+- ffprobe主要用于音视频内容分析
+- ffplay主要用于音视频播放、可视化分析
+
+至此，FFmpeg的基础使用部分已经介绍完毕。
 
 <br>
